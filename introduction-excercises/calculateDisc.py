@@ -2,8 +2,10 @@
 
 import math
 
+
 def getArea(radius):
-    return math.pi * radius ** 2
+    return math.pi * radius**2
+
 
 def main():
     print("This program calculates the area of a circle")
@@ -11,5 +13,6 @@ def main():
     area = getArea(radius)
     print("The area of the circle is", area)
 
-if(__name__ == "__main__"):
+
+if __name__ == "__main__":
     main()

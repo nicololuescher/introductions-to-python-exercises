@@ -1,25 +1,27 @@
 # Develop a function insertion_sort that takes an unordered list of numbers and returns an ordered list taking advantage of the previous function.
 
+
 def insertIntoList(inputList, number):
-    if(len(inputList) == 0):
+    if len(inputList) == 0:
         inputList.append(number)
         return inputList
     for i in range(len(inputList)):
-        if(number < inputList[i]):
+        if number < inputList[i]:
             inputList.insert(i, number)
             return inputList
     inputList.append(number)
     return inputList
 
+
 def main():
     unorderedList = [4, 2, 8, 3, 10, 7, 1, 9, 5, 6]
     orderedList = []
     for i in unorderedList:
-        print("inserting", i ,"in the list", orderedList)
+        print("inserting", i, "in the list", orderedList)
         orderedList = insertIntoList(orderedList, i)
-    
-    print("The ordered list is", orderedList)
-    
 
-if(__name__ == "__main__"):
+    print("The ordered list is", orderedList)
+
+
+if __name__ == "__main__":
     main()
