@@ -12,14 +12,17 @@ def insertIntoList(inputList, number):
     inputList.append(number)
     return inputList
 
+def insertionSort(list):
+    orderedList = []
+    for i in list:
+        print("inserting", i, "in the list", orderedList)
+        orderedList = insertIntoList(orderedList, i)
+    return orderedList
+
 
 def main():
     unorderedList = [4, 2, 8, 3, 10, 7, 1, 9, 5, 6]
-    orderedList = []
-    for i in unorderedList:
-        print("inserting", i, "in the list", orderedList)
-        orderedList = insertIntoList(orderedList, i)
-
+    orderedList = insertionSort(unorderedList)
     print("The ordered list is", orderedList)
 
 

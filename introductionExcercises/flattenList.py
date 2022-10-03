@@ -11,7 +11,7 @@ def flattenList(input, outputList=[]):
 
 
 def main():
-    inputList = [[1, 2, 3], [4, 5, 6], [7, 8, [9, 10, 11]]]
+    inputList = [[1, 2, 3], [4, 5, 6], [7, 8, [9, "test", 11]]]
     print("the flattened list is", flattenList(inputList))
 
 
