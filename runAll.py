@@ -48,7 +48,7 @@ if introductionExcercises.isodd.isOdd(5):
     print("5 is odd\n")
 else:
     print("5 is even\n")
-
+z
 inputList = ["this", "is", "a", "list", "of", "strings"]
 print("The list is: ", inputList)
 print(
