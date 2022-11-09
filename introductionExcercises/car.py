@@ -6,17 +6,18 @@
 # Drive a certain distance (km),
 # Return the current amount of gas (liters).
 
+
 class Car:
-    def __init__(self, consumption, tankSize = 30):
+    def __init__(self, consumption, tankSize=30):
         self.consumption = consumption
         self.tankSize = tankSize
         self.fuel = 0
-    
+
     def fill(self):
         self.fuel = self.tankSize
-    
+
     def drive(self, km):
-        self.fuel -= km/100 * self.consumption
-    
+        self.fuel -= km / 100 * self.consumption
+
     def checkFuelLevel(self):
         return self.fuel

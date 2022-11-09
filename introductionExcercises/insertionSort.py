@@ -12,6 +12,7 @@ def insertIntoList(inputList, number):
     inputList.append(number)
     return inputList
 
+
 def insertionSort(list):
     orderedList = []
     for i in list:

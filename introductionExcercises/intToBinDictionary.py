@@ -4,8 +4,9 @@
 
 # note: this is extremely ugly, i only did it because the excercise asked for it
 
+
 def intToBin(n):
-    if(n > 7):
+    if n > 7:
         return "Error: number too large"
     binNumbers = {
         0: "0",
@@ -15,14 +16,15 @@ def intToBin(n):
         4: "100",
         5: "101",
         6: "110",
-        7: "111"
+        7: "111",
     }
     return binNumbers[n]
 
+
 def intToBinMatch(n):
-    if(n > 7):
+    if n > 7:
         return "Error: number too large"
-    
+
     match n:
         case 0:
             return "0"
@@ -41,20 +43,23 @@ def intToBinMatch(n):
         case 7:
             return "111"
 
+
 def intToBinList(n):
     outputList = []
-    
+
     for c in intToBin(n):
-        if(c == "1"):
+        if c == "1":
             outputList.append(True)
         else:
             outputList.append(False)
     return outputList
 
+
 def main():
     print("the binary representation of 5 is ", intToBin(5))
     print("the binary representation of 5 with a match case is ", intToBinMatch(5))
     print("The binary representation of 5 as a list is ", intToBinList(5))
+
 
 if __name__ == "__main__":
     main()

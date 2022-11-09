@@ -66,19 +66,55 @@ print(
 
 inputList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 print("The list is: ", inputList)
-print("The iterative reversed list is", introductionExcercises.reverseList.reverseIterative(inputList))
-print("The recursive reversed list is", introductionExcercises.reverseList.reverseRecursive(inputList), "\n")
+print(
+    "The iterative reversed list is",
+    introductionExcercises.reverseList.reverseIterative(inputList),
+)
+print(
+    "The recursive reversed list is",
+    introductionExcercises.reverseList.reverseRecursive(inputList),
+    "\n",
+)
 
-print("iterative sum form 1 to 10 is", introductionExcercises.sumOfIntegers.sumIterative([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
-print("recursive sum from 1 to 10 is", introductionExcercises.sumOfIntegers.sumRecursive([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]), "\n")
+print(
+    "iterative sum form 1 to 10 is",
+    introductionExcercises.sumOfIntegers.sumIterative([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
+)
+print(
+    "recursive sum from 1 to 10 is",
+    introductionExcercises.sumOfIntegers.sumRecursive([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
+    "\n",
+)
 
-print("the binary representation of 5 is ", introductionExcercises.intToBinDictionary.intToBin(5))
-print("the binary representation of 5 with a match case is ", introductionExcercises.intToBinDictionary.intToBinMatch(5))
-print("The binary representation of 5 as a list is ", introductionExcercises.intToBinDictionary.intToBinList(5), "\n")
+print(
+    "the binary representation of 5 is ",
+    introductionExcercises.intToBinDictionary.intToBin(5),
+)
+print(
+    "the binary representation of 5 with a match case is ",
+    introductionExcercises.intToBinDictionary.intToBinMatch(5),
+)
+print(
+    "The binary representation of 5 as a list is ",
+    introductionExcercises.intToBinDictionary.intToBinList(5),
+    "\n",
+)
 
-print("The iversion of ['x1', 'x2', 'x3'], ['y1', 'y2', 'y3'], ['z1', 'z2', 'z3']] is: ", introductionExcercises.reverseMatrix.reverseMatrix([["x1", "x2", "x3"],["y1", "y2", "y3"], ["z1", "z2", "z3"]]), "\n")
+print(
+    "The iversion of ['x1', 'x2', 'x3'], ['y1', 'y2', 'y3'], ['z1', 'z2', 'z3']] is: ",
+    introductionExcercises.reverseMatrix.reverseMatrix(
+        [["x1", "x2", "x3"], ["y1", "y2", "y3"], ["z1", "z2", "z3"]]
+    ),
+    "\n",
+)
 
-print("After removing the lowest and highest entries in the dictionary {'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5}, the dictionary looks like this: ", introductionExcercises.removeMinMax.removeMinMax({'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5}), "\n")
+print(
+    "After removing the lowest and highest entries in the dictionary {'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5}, the dictionary looks like this: ",
+    introductionExcercises.removeMinMax.removeMinMax(
+        {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5}
+    ),
+    "\n",
+)
 
 print("creating new phone keyboard")
 t = introductionExcercises.phoneKeyboard.PhoneKeyboard()
@@ -100,7 +136,9 @@ print(t.phoneNumber)
 t.dial()
 print("\n")
 
-print("creating a car with a consumtion of 6.5l/100km and a tank size of 30l and then drive it for 100km")
+print(
+    "creating a car with a consumtion of 6.5l/100km and a tank size of 30l and then drive it for 100km"
+)
 car = introductionExcercises.car.Car(6.5, 30)
 car.fill()
 car.drive(100)
