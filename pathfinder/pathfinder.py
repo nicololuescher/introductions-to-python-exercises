@@ -2,7 +2,7 @@ from tracemalloc import start
 import numpy as np
 
 startPosition = 1505
-endPosition =   3162
+endPosition = 3162
 
 
 def convert(s):
