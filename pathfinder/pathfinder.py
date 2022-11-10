@@ -8,7 +8,6 @@
 Start, 49, 21, 63, 18, 45, 65, 13, 91, 35, 77, 11, 33, 54, 87, 78, 51, 17, End
 """
 
-from tracemalloc import start
 import numpy as np
 
 startPosition = 1505
