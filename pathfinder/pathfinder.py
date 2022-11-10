@@ -1,3 +1,13 @@
+"""program to find the shortest path in a grid of integers according to the following rules:
+    - the path must start at the position marked with X and end at the position marked with Y
+    - the path must consist of a sequence of integers
+    - the path must consist of integers that have a common divisor greater than 1 with the previous integer
+    - the path must consist of integers that have a common divisor greater than 1 with the next integer
+
+>>> main()
+Start, 49, 21, 63, 18, 45, 65, 13, 91, 35, 77, 11, 33, 54, 87, 78, 51, 17, End
+"""
+
 from tracemalloc import start
 import numpy as np
 
@@ -89,65 +99,82 @@ def checkNeighbors(pos, grid):
     return returnList
 
 
-def makeMove(grid, pos, outputPaths=False, path=[], validPaths=[]):
+def makeMove(grid, pos, outputPaths=False, path=[], validPaths=[], originalGrid=[]):
     """recursive function to make a move on the grid and check if the move is valid
 
     Args:
         grid (numpy.ndarray): grid to check
         pos (list): current position
-        path (list): list of positions already visited
-        validPaths (list): list of valid paths, used for output
+        output (bool, optional): if True, print the shortest path. Defaults to False.
+        path (list, optional): list of positions already visited, defaults to empty list.
+        validPaths (list, optional): list of valid paths, used for output, defaults to empty list.
+        originalGrid (numpy.ndarray, optional): original grid, used for output, defaults to empty list.
 
     Returns:
         list: the last instance of makemove will return a list of valid paths
 
     >>> makeMove(np.array([[3162, 2], [3, 4]]), [1, 1])
-    [[[1, 1], [0, 1]]]
+    [[[1, 1], [0, 1], [0, 0]]]
     """
     if not "currentDepth" in globals():
         global currentDepth
         currentDepth = 1
         validPaths = []
         path = []
+        originalGrid = grid.copy()
     else:
         currentDepth += 1
+
+    path.append(pos)
 
     if grid[pos[0], pos[1]] == endPosition:
         validPaths.append(path)
     else:
-        path.append(pos)
         for move in checkNeighbors(pos, grid):
             grid[pos[0], pos[1]] = -1
-            makeMove(grid.copy(), move, outputPaths, path.copy(), validPaths)
+            makeMove(
+                grid.copy(), move, outputPaths, path.copy(), validPaths, originalGrid
+            )
     currentDepth -= 1
     if currentDepth == 0:
         del currentDepth
         if outputPaths:
-            printPaths(validPaths)
+            printPaths(validPaths, originalGrid)
         return validPaths
 
 
-def printPaths(paths):
-    """Print the paths in a readable format
+def printPaths(paths, grid):
+    """Print the shortest Path by displaying its integer steps
 
     Args:
         paths (list): list of valid paths
 
-    >>> printPaths([[[1, 1], [0, 1]]])
-    Valid Paths:
-    Path length: 2
-    [[1, 1], [0, 1]]
+    >>> printPaths([[[1, 1], [0, 1]]], np.array([[1,2],[3,4]]))
+    4, 2
     """
-    print("Valid Paths:")
-    for path in paths:
-        print("Path length:", len(path))
-        print(path)
+
+    outputString = ""
+    for move in min(paths, key=len):
+        if grid[move[0], move[1]] == 1505:
+            outputString = outputString + "Start" + ", "
+        elif grid[move[0], move[1]] == 3162:
+            outputString = outputString + "End" + ", "
+        else:
+            outputString = outputString + (str(grid[move[0], move[1]]) + ", ")
+
+    print(outputString[:-2])
 
 
 def main():
-    """main function to read the input file and call the recursive function to find the valid paths"""
+    """main function to read the input file and call the recursive function to find the valid paths
+
+    >>> main()
+    Start, 49, 21, 63, 18, 45, 65, 13, 91, 35, 77, 11, 33, 54, 87, 78, 51, 17, End
+    """
     makeMove(
-        np.loadtxt("et.txt", dtype=int, converters=lambda s: convert(s)), [5, 5], True
+        grid=np.loadtxt("et.txt", dtype=int, converters=lambda s: convert(s)),
+        pos=[5, 5],
+        outputPaths=True,
     )
 
 
